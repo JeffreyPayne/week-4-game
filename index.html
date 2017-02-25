@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crystals Collector</title>
+
+  <!-- Added link to the jQuery Library -->
+  <script type ="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+<script src="./game.js"></script>
+
+</head>
+
+<body>
+
+<div class="panel panel-default">
+	<div class="panel-head">
+
+<h1>CrystalsCollector!</h1>
+
+	<div body="panel-body">
+
+<p>You will be given a random number at the start of the game.
+<br/>
+   There are four crystals below. By clicking on a crystal you
+   will add a specific amount of points to your total score.
+<br/>
+   You win the game by matching your total score to a random
+   number, you lose the game if your total score goes above
+   the random number.
+<br/>
+   The value of each crystal is hidden from you until you
+   click on it.
+<br/>
+   Each time when the game starts, the game will change the 
+   value of each crystal.
+</p>
+
+   </div>
+
+</div>
+
+
+<div id="crystals">
+</div>
+
+<div class="container">
+
+<div class="panel panel-default">
+	<div class="panel-body">
+    Wins: <span id="numWins">0</span>
+    </div>
+    <div class="panel-body">
+    Losses: <span id="numLosses">0</span>
+    </div>
+</div>
+
+</div>
+
+<div class="container">
+
+<a href="#"><img src="assets/images/blue crystal.jpg" class="crystal" alt="blue crystal" /></a>
+<a href="#"><img src="assets/images/orange crystal.png" class="crystal" alt="orange crystal" /></a>
+<a href="#"><img src="assets/images/green crystal.png" class="crystal" alt="green crystal" /></a>
+<a href="#"><img src="assets/images/red crystal.png" class="crystal" alt="red crystal" /></a>
+
+</div>
+
+<div class="container">
+
+<div class="panel panel-default">
+	<div class="panel-body">
+	Your Total Score Is: <span id="Score">0</span>
+</div>
+</div>
+
+
+</body>
+
+</html>
