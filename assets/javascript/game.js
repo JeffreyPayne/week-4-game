@@ -1,58 +1,56 @@
 $(document).ready(function() {
 
-var winNumber = 0;
+  var yourMatchingNumber = 0;
 
-var targetNumber = targetNumberGen();
+  var randomNum = randomNumGen();
 
-var numWins = 0;
-var numLosses = 0;
-var crystals;
+  var wins = 0;
+  var losses = 0;
+  var crystals;
 
-function randomNumCrystals() {
+  function randomNumCrystals() {
+    return {
+      red: {
+        points: Math.floor(Math.random() * 12) + 1,
+        imageUrl: "assets/images/red.png"
+      },
+      blue: {
+        points: Math.floor(Math.random() * 12) + 1,
+        imageUrl: "assets/images/blue.jpg"
+      },
+      orange: {
+        points: Math.floor(Math.random() * 12) + 1,
+        imageUrl: "assets/images/orange.png"
+      },
+      green: {
+        points: Math.floor(Math.random() * 12) + 1,
+        imageUrl: "assets/images/green.png"
+      }
+    };
+  }
 
-  return  {
-    blue: {
-      points: Math.floor ((Math.random() * 12) + 1),
-      imageUrl: "assets/images/blue_crystal.jpg"
-    },
-    orange: {
-      points: Math.floor ((Math.random() * 12) + 1),
-      imageUrl: "assets/images/orange_crystal.png" 
-    },
-    green: {
-      points: Math.floor ((Math.random() * 12) + 1),
-      imageUrl: "assets/images/green_crystal.png"
+  function randomNumGen() {
+    return Math.floor(Math.random() * 102) + 19;
+  }
+
+  function setGame() {
+    yourMatchingNumber = 0;
+    crystals = randomNumCrystals();
+    randomNum = randomNumGen();
+    $("#random-area").text(randomNum);
+  }
+
+  function updateDom(didUserWin) {
+    $("#win-area").empty();
+
+    if (didUserWin === true) {
+      $("#win-area").append($("<p>").text("You won!!"));
+      setGame();
+      renderMatchingNumber();
     }
-    red: {
-      points: Math.floor ((Math.random() * 12) + 1),
-      imageUrl: "assets/images/red_crystal.png"
-    }
-   };
-}
-
-function targetNumberGen() {
-	return Math.floor((Math.random() * 102) + 19);
-}
-
-function setGame() {
-	winNumber = 0;
-	crystals = randomNumCrystals();
-	targetNumber = targetNumberGen();
-	$("#random").text(targetNumber);
-}
-
-function updateDom(didUserWin) {
-	$("win-loss").empty();
-
-	if (didUserWin === true) {
-		$("#win-loss").append($("<p>").text("You won!!"));
-		setGame();
-		renderWinNumber();
-	}
-}
-
- else if (didUserWin === false) {
-      $("#win-loss").append($("<p>").text("You lost!!"));
+   
+    else if (didUserWin === false) {
+      $("#win-area").append($("<p>").text("You lost!!"));
       setGame();
       renderMatchingNumber();
     }
@@ -66,8 +64,8 @@ function updateDom(didUserWin) {
     pWins.append(wSpan);
     pLosses.append(lSpan);
 
-    $("#win-loss").append(pWins);
-    $("#win-loss").append(pLosses);
+    $("#win-area").append(pWins);
+    $("#win-area").append(pLosses);
   }
 
   function renderCrystals() {
@@ -95,21 +93,16 @@ function updateDom(didUserWin) {
   renderMatchingNumber();
 
   $(".crystals-button").on("click", function(event) {
-    // Update our "current guess" number and re-render it.
     updateMatchingNumber($(this));
     renderMatchingNumber();
 
-    // Check to see if we have won or lost.
-    // If our current guess number equals the target number..
     if (yourMatchingNumber === randomNum) {
-      // Increment wins, restart the game, and update the page.
       wins++;
       setGame();
       updateDom(true);
     }
-    // If our guess number exceeded our target number...
+   
     else if (yourMatchingNumber > randomNum) {
-      // Increment losses, restart the game, and update the page.
       losses++;
       setGame();
       updateDom(false);
@@ -117,86 +110,3 @@ function updateDom(didUserWin) {
   });
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-//$("#winNumber").html(targetNumber);
-
-//var blueCrystalVal = Math.floor ((Math.random() * 12) + 1);
-//var orangeCrystalVal = Math.floor ((Math.random() * 12) + 1);
-//var greenCrystalVal = Math.floor ((Math.random() * 12) + 1);
-//var redCrystalVal = Math.floor ((Math.random() * 12) + 1);
-//total = 0;
-//$("#Score").html(counter);
-
-
-//function startGame () {
-//	var targetNumber = Math.floor((Math.random() * 102) +19);
-
-//$("#winNumber").html(targetNumber);
-
-//var blueCrystalVal = Math.floor ((Math.random() * 12) + 1);
-//var orangeCrystalVal = Math.floor ((Math.random() * 12) + 1);
-//var greenCrystalVal = Math.floor ((Math.random() * 12) + 1);
-//var redCrystalVal = Math.floor ((Math.random() * 12) + 1);
-//total = 0;
-//$("#Score").html(counter);
-
-//};
-
-//$("#blueCrystal").on("click", function() {
-//	$("#blueCrystal").att("value", blueCrystalVal);
-//	total += blueCrystalVal;
-//    $("#Score").html(total);
-//}
-
-//$("#orangeCrystal").on("click", function() {
-//	$("#orangeCrystal").att("value", orangeCrystalVal);
-//	total += orangeCrystalVal;
-//    $("#Score").html(total);
-//}
-
-//$("#greenCrystal").on("click", function() {
-//	$("#greenCrystal").att("value", greenCrystalVal);
-//	total += greenCrystalVal;
-//    $("#Score").html(total);
-//}
-
-//$("#redCrystal").on("click", function() {
-//	$("#redCrystal").att("value", redCrystalVal);
-//	total += redCrystalVal;
-//    $("#Score").html(total);
-//}
-
-
-//if (counter < targetNumber) {
-//	$("#Score").html(counter);
-//	console.log(counter);
-//}
-
-//else if (counter > targetNumber) {
-//	$("#Score").html(counter);
-//	alert("You Lose");
-//	numLosses++;
-//	$("#numLosses").html(Losses);
-//	startGame();
-//}
-
-//else {
-//	$("#Score").html(counter);
-//	alert("You Win");
-//	numWins++;
-//	$("#numWins").html(Wins);
-//	startGame();
-//}
-
-//});

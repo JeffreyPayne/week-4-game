@@ -1,12 +1,12 @@
 body {
-  background: url(../images/congruent_outline.png);
+  background-image: url(../images/congruent_outline.png);
   background-repeat: repeat;
 }
 
-#goalNum{ overflow: auto; }
-#goalNum div {   float: left; }
+#screen { overflow: auto; }
+#screen div { float: left; }
 
-#title{
+#title {
   width: 300px;
   padding: 4px;
   margin-bottom: 10px;
@@ -14,55 +14,55 @@ body {
   background-color: orange;
 }
 
-#rules{
+#instructions {
   width: 400px;
   height: 400px;
   padding: 4px;
   margin-bottom: 10px;
-  color: black;
+  color: green;
   background-color: beige;
 }
 
-#random{
+#random-area {
   width: 200px;
   height: 100px;
   padding: 4px;
-  font-size: 15px;
+  font-size: 45px;
   color: black;
   background-color: green;
 }
 
-#win-loss{
-  width: 100px;
+#score-area {
+  width: 200px;
+  height: 100px;
+  padding: 4px;
+  color: white;
+  background-color: teal;
+}
+
+#yts {
+  width: 200px;
+  padding: 4px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: teal;
+}
+
+.crystals-button { display: inline; }
+.crystal-img {
+  width: 80px;
+  height: 80px;
+  border: solid;
+  border-color: chocolate;
+  background-color: white;
+  cursor: pointer;
+}
+
+#score-number { font-size: 45px; }
+#win-area {
   height: 100px;
   padding: 4px;
   margin-left: 10px;
   margin-bottom: 10px;
   background-color: cyan;
-}
-
-.crystals-button {display: inline; }
-.crystal-img{
-  width: 80px;
-  height: 80px;
-  background-color: white;
-  cursor: pointer;
-}
-
-#score-title{
-  width: 200px;
-  padding: 4px;
-  margin-bottom: 10px;
-  color: white;
-  background-color: teal;
-}
-
-#Score{
-  font-size: 15px;
-  width: 200px;
-  height: 100px;
-  padding: 4px;
-  color: white;
-  background-color: teal;
-
 }
